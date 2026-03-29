@@ -185,7 +185,7 @@
       color: var(--purple);
       font-size: 15px;
     }
-    .sp-image { width: 100%; max-width: 600px; border-radius: 12px; display: block; margin: 0 auto; }
+    .sp-image { width: 100%; border-radius: 12px; display: block; margin: 0 auto; }
 
     /* ── STORYTELLING ── */
     .story-images {
@@ -201,9 +201,10 @@
     }
     .story-img-block img {
       width: 100%;
-      border-radius: 12px;
+      height: 360px;
       object-fit: cover;
-      max-height: 260px;
+      object-position: top;
+      border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     }
     .story-img-caption {
@@ -275,7 +276,7 @@
     .module-body {
       padding: 24px 28px;
     }
-    .module-img { width: 100%; border-radius: 10px; margin-bottom: 20px; display: block; object-fit: cover; max-height: 300px; }
+    .module-img { width: 100%; border-radius: 10px; margin-bottom: 20px; display: block; }
     .module-list { list-style: none; padding: 0; }
     .module-list li {
       display: flex;
@@ -330,7 +331,7 @@
     }
     .bonus-value .price-original { text-decoration: line-through; }
     .bonus-value .price-free { color: var(--green); font-weight: 700; font-size: 16px; }
-    .bonus-img { width: 100%; border-radius: 10px; margin-top: 18px; display: block; object-fit: cover; max-height: 280px; }
+    .bonus-img { width: 100%; border-radius: 10px; margin-top: 18px; display: block; }
     .divider { border: none; border-top: 1px dashed var(--gray-border); margin: 32px 0; }
 
     /* ── PRICING ── */
@@ -635,7 +636,7 @@
 ══════════════════════════════════════ -->
 <section class="section">
   <div class="container">
-    <h2>היי, קוראים לי מור סקוטלסקי אדרי</h2>
+    <h2 style="text-align:center; font-size:clamp(28px, 4vw, 42px);">היי, קוראים לי מור סקוטלסקי אדרי</h2>
 
     <div class="story-images">
       <div class="story-img-block">
@@ -675,11 +676,9 @@
     <!-- Arrow -->
     <div class="arrow-down">↓</div>
 
-    <!-- Social Proof 1 (no image file, styled card) -->
+    <!-- Social Proof 1 -->
     <div class="social-proof-card">
-      <blockquote>
-        "הכלים שקיבלתי שינו לחלוטין את האווירה בביקורים. היום אני יוצאת עם חיוך במקום דמעות."
-      </blockquote>
+      <img src="socialproof1.png" alt="עדות רויטל" class="sp-image" style="margin-bottom:18px;" />
       <div class="social-proof-author">
         <div class="author-avatar">ר</div>
         <div>
@@ -880,9 +879,7 @@
 <section class="section">
   <div class="container">
     <div class="social-proof-card">
-      <blockquote>
-        "לא האמנתי שכמה שיעורים יכולים לשנות כל כך הרבה. הביקורים אצל אבא הפכו לרגועים ואפילו נעימים."
-      </blockquote>
+      <img src="socialproof3.png" alt="עדות ורד" class="sp-image" style="margin-bottom:18px;" />
       <div class="social-proof-author">
         <div class="author-avatar">ו</div>
         <div>
@@ -955,9 +952,7 @@
 <section class="section">
   <div class="container">
     <div class="social-proof-card">
-      <blockquote>
-        "אחרי שלמדתי לדבר 'דמנציה', הביקורים אצל אבא הפכו לחלק הכי טוב בשבוע שלי. תודה מכל הלב."
-      </blockquote>
+      <img src="socialproof4.png" alt="עדות מיכל" class="sp-image" style="margin-bottom:18px;" />
       <div class="social-proof-author">
         <div class="author-avatar">מ</div>
         <div>
