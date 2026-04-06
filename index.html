@@ -11,18 +11,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --purple: #502D7F;
-      --purple-light: #6B42A8;
-      --purple-bg: #F3EEF9;
-      --green: #8DA750;
-      --green-light: #A8C268;
-      --green-bg: #F2F6EA;
+      --purple: #7C5CBF;
+      --purple-dark: #5A3D9A;
+      --purple-light: #9B7DD4;
+      --purple-bg: #EDE6F7;
+      --pink: #E8A0A0;
+      --pink-light: #F5CECE;
+      --pink-bg: #FDF0F0;
       --white: #FFFFFF;
-      --gray-bg: #F9F9F9;
-      --gray-border: #E8E8E8;
-      --text-dark: #1A1A2E;
-      --text-mid: #444;
-      --text-light: #777;
+      --cream: #FDF8F4;
+      --section-alt: #F2EAE3;
+      --gray-border: #E2D8D0;
+      --text-dark: #2D2D2D;
+      --text-mid: #555;
+      --text-light: #888;
     }
 
     html { scroll-behavior: smooth; }
@@ -30,9 +32,9 @@
     body {
       font-family: 'Heebo', sans-serif;
       direction: rtl;
-      text-align: right;
+      text-align: center;
       color: var(--text-dark);
-      background: var(--white);
+      background: var(--cream);
       line-height: 1.7;
       font-size: 17px;
     }
@@ -40,16 +42,31 @@
     /* ── UTILITIES ── */
     .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
     .section { padding: 70px 0; }
-    .section-alt { background: var(--gray-bg); }
+    .section-alt { background: var(--section-alt); }
     .text-center { text-align: center; }
     .text-purple { color: var(--purple); }
-    .text-green { color: var(--green); }
     .bold { font-weight: 700; }
     .strike { text-decoration: line-through; color: var(--text-light); }
 
     /* ── TYPOGRAPHY ── */
     h1 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; line-height: 1.35; color: var(--purple); margin-bottom: 20px; }
-    h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 700; line-height: 1.4; color: var(--purple); margin-bottom: 16px; }
+    h2 {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--purple);
+      margin-bottom: 16px;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 56px;
+      height: 3px;
+      background: linear-gradient(to left, var(--purple), var(--pink));
+      border-radius: 2px;
+      margin-top: 10px;
+    }
+    .text-center h2::after { margin-left: auto; margin-right: auto; }
     h3 { font-size: clamp(18px, 2.5vw, 22px); font-weight: 700; color: var(--purple); margin-bottom: 12px; }
     p { margin-bottom: 16px; }
     ul { padding-right: 24px; margin-bottom: 16px; }
@@ -57,7 +74,7 @@
 
     /* ── TOP BAR ── */
     .topbar {
-      background: var(--purple);
+      background: var(--purple-dark);
       color: var(--white);
       text-align: center;
       padding: 10px 20px;
@@ -68,7 +85,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, var(--purple) 0%, #6B42A8 100%);
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 100%);
       color: var(--white);
       padding: 70px 20px 60px;
       text-align: center;
@@ -84,25 +101,23 @@
     }
     .hero h1 {
       color: var(--white);
-      font-size: clamp(24px, 3.5vw, 36px);
+      font-size: clamp(28px, 4vw, 42px);
       max-width: 780px;
       margin-left: auto;
       margin-right: auto;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      font-weight: 900;
     }
 
     /* ── VIDEO ── */
-    .video-wrapper {
-      max-width: 720px;
-      margin: 0 auto;
-    }
+    .video-wrapper { max-width: 720px; margin: 0 auto; }
     .video-embed {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 12px 40px rgba(80,45,127,0.18);
+      box-shadow: 0 12px 40px rgba(90,61,154,0.18);
     }
     .video-embed iframe {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -110,26 +125,23 @@
     }
 
     /* ── IDENTIFICATION ── */
-    .identification-list {
-      list-style: none;
-      padding-right: 0;
-      margin: 24px 0;
-    }
+    .identification-list { list-style: none; padding-right: 0; margin: 24px 0; }
     .identification-list li {
       display: flex;
       align-items: flex-start;
       gap: 12px;
       background: var(--white);
-      border-right: 4px solid var(--green);
+      border-right: 4px solid var(--pink);
       border-radius: 8px;
       padding: 14px 18px;
       margin-bottom: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       font-size: 16px;
+      text-align: right;
     }
     .identification-list li::before {
       content: "←";
-      color: var(--green);
+      color: var(--pink);
       font-size: 18px;
       flex-shrink: 0;
       margin-top: 2px;
@@ -142,7 +154,7 @@
       text-align: center;
       font-size: 18px;
       font-weight: 600;
-      color: var(--purple);
+      color: var(--purple-dark);
     }
 
     /* ── SOCIAL PROOF CARD ── */
@@ -152,8 +164,9 @@
       padding: 28px 32px;
       margin: 40px auto;
       max-width: 700px;
-      box-shadow: 0 4px 24px rgba(80,45,127,0.10);
-      border-right: 5px solid var(--green);
+      box-shadow: 0 4px 24px rgba(232,160,160,0.18);
+      border: 1.5px solid var(--pink-light);
+      border-right: 5px solid var(--pink);
     }
     .social-proof-card blockquote {
       font-size: 17px;
@@ -162,61 +175,37 @@
       line-height: 1.8;
       margin-bottom: 16px;
     }
-    .social-proof-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .social-proof-author { display: flex; align-items: center; gap: 12px; }
     .author-avatar {
-      width: 44px;
-      height: 44px;
+      width: 44px; height: 44px;
       border-radius: 50%;
       background: var(--purple);
       color: var(--white);
-      font-size: 18px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 18px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .author-name {
-      font-weight: 700;
-      color: var(--purple);
-      font-size: 15px;
-    }
+    .author-name { font-weight: 700; color: var(--purple); font-size: 15px; }
     .sp-image { width: 100%; border-radius: 12px; display: block; margin: 0 auto; }
 
     /* ── STORYTELLING ── */
-    .story-images {
-      display: flex;
-      gap: 20px;
-      margin: 28px 0;
-      flex-wrap: wrap;
-    }
-    .story-img-block {
-      flex: 1;
-      min-width: 200px;
-      text-align: center;
-    }
+    .story-images { display: flex; gap: 20px; margin: 28px 0; flex-wrap: wrap; align-items: flex-start; }
+    .story-img-block { flex: 1; min-width: 200px; text-align: center; }
     .story-img-block img {
       width: 100%;
-      height: 360px;
-      object-fit: cover;
-      object-position: top;
+      height: 340px;
+      object-fit: contain;
+      object-position: center top;
       border-radius: 12px;
+      background: transparent;
       box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      display: block;
     }
-    .story-img-caption {
-      font-size: 14px;
-      color: var(--text-light);
-      margin-top: 8px;
-      font-style: italic;
-    }
+    .story-img-caption { font-size: 14px; color: var(--text-light); margin-top: 8px; font-style: italic; }
 
     /* ── BIG HIGHLIGHT ── */
     .big-highlight {
-      background: linear-gradient(135deg, var(--purple-bg) 0%, #E8F2DA 100%);
+      background: linear-gradient(135deg, var(--purple-bg) 0%, var(--pink-bg) 100%);
       border-radius: 16px;
       padding: 36px 32px;
       margin: 40px 0;
@@ -225,228 +214,165 @@
     .big-highlight p {
       font-size: clamp(18px, 2.5vw, 22px);
       font-weight: 600;
-      color: var(--purple);
+      color: var(--purple-dark);
       margin-bottom: 0;
       line-height: 1.6;
     }
 
     /* ── ARROW ── */
-    .arrow-down {
-      text-align: center;
-      font-size: 42px;
-      color: var(--green);
-      margin: 10px 0 20px;
-      line-height: 1;
-    }
+    .arrow-down { text-align: center; font-size: 42px; color: var(--pink); margin: 10px 0 20px; line-height: 1; }
 
     /* ── COURSE TITLE ── */
-    .course-title-block {
-      text-align: center;
-      margin: 20px 0 32px;
-    }
-    .course-name {
-      font-size: clamp(28px, 5vw, 48px);
-      font-weight: 900;
-      color: var(--purple);
-      line-height: 1.2;
-    }
-    .course-subtitle {
-      font-size: clamp(17px, 2.5vw, 22px);
-      color: var(--text-mid);
-      margin-top: 12px;
-      font-weight: 500;
-    }
-    .mockup-img { width: 100%; max-width: 640px; display: block; margin: 28px auto; border-radius: 14px; box-shadow: 0 8px 32px rgba(80,45,127,0.14); }
+    .course-title-block { text-align: center; margin: 20px 0 32px; }
+    .course-name { font-size: clamp(28px, 5vw, 48px); font-weight: 900; color: var(--purple-dark); line-height: 1.2; }
+    .course-subtitle { font-size: clamp(17px, 2.5vw, 22px); color: var(--text-mid); margin-top: 12px; font-weight: 500; }
+    .mockup-img { width: 100%; max-width: 640px; display: block; margin: 28px auto; border-radius: 14px; box-shadow: 0 8px 32px rgba(90,61,154,0.14); }
 
     /* ── MODULE CARDS ── */
     .module-card {
       background: var(--white);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
       margin-bottom: 32px;
     }
-    .module-header {
-      background: var(--purple);
-      color: var(--white);
-      padding: 20px 28px;
-    }
+    .module-header { background: var(--purple); color: var(--white); padding: 20px 28px; }
     .module-header h3 { color: var(--white); margin: 0; font-size: 20px; }
     .module-header p { color: #D9CCEF; margin: 6px 0 0; font-size: 15px; }
-    .module-body {
-      padding: 24px 28px;
-    }
-    .module-img { width: 100%; border-radius: 10px; margin-bottom: 20px; display: block; }
+    .module-body { padding: 24px 28px; }
+    .module-img { width: 100%; height: 280px; border-radius: 10px; margin-bottom: 20px; display: block; object-fit: contain; object-position: center; }
     .module-list { list-style: none; padding: 0; }
     .module-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--gray-border);
-      font-size: 16px;
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid var(--gray-border); font-size: 16px;
+      text-align: right;
     }
     .module-list li:last-child { border-bottom: none; }
     .module-list li::before {
       content: "✓";
-      background: var(--green);
+      background: var(--purple);
       color: white;
-      width: 22px;
-      height: 22px;
+      width: 22px; height: 22px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
     }
 
     /* ── BONUSES ── */
     .bonus-card {
       background: var(--white);
       border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border: 1.5px solid var(--green);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      border: 1.5px solid var(--pink-light);
       padding: 28px;
       margin-bottom: 24px;
       position: relative;
     }
     .bonus-badge {
-      position: absolute;
-      top: -14px;
-      right: 24px;
-      background: var(--green);
+      position: absolute; top: -14px; right: 24px;
+      background: var(--purple);
       color: white;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 4px 16px;
-      border-radius: 20px;
+      font-size: 13px; font-weight: 700;
+      padding: 4px 16px; border-radius: 20px;
     }
-    .bonus-value {
-      font-size: 14px;
-      color: var(--text-light);
-      margin-top: 12px;
-    }
+    .bonus-value { font-size: 14px; color: var(--text-light); margin-top: 12px; }
     .bonus-value .price-original { text-decoration: line-through; }
-    .bonus-value .price-free { color: var(--green); font-weight: 700; font-size: 16px; }
-    .bonus-img { width: 100%; border-radius: 10px; margin-top: 18px; display: block; }
+    .bonus-value .price-free { color: var(--purple); font-weight: 700; font-size: 16px; }
+    .bonus-img { width: 100%; height: auto; max-height: none; border-radius: 10px; margin-top: 18px; display: block; object-fit: contain; }
     .divider { border: none; border-top: 1px dashed var(--gray-border); margin: 32px 0; }
 
     /* ── PRICING ── */
     .pricing-box {
-      background: linear-gradient(135deg, var(--purple) 0%, #6B42A8 100%);
+      background: var(--purple-bg);
+      border: 2px solid var(--purple-light);
       border-radius: 20px;
-      padding: 48px 36px;
+      padding: 70px 36px 48px;
       text-align: center;
-      color: var(--white);
+      color: var(--text-dark);
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       max-width: 600px;
-      margin: 0 auto;
-      box-shadow: 0 12px 40px rgba(80,45,127,0.28);
+      margin: 40px auto 0;
+      box-shadow: 0 12px 40px rgba(124,92,191,0.18);
     }
     .pricing-box::before {
       content: "";
       position: absolute;
       top: -60px; right: -60px;
       width: 200px; height: 200px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(124,92,191,0.06);
       border-radius: 50%;
     }
     .discount-badge {
       display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #FFD700;
-      color: #333;
-      font-size: 22px;
-      font-weight: 900;
-      width: 90px;
-      height: 90px;
+      align-items: center; justify-content: center;
+      background: #F5C518;
+      color: #2D2D2D;
+      font-size: 22px; font-weight: 900;
+      width: 100px; height: 100px;
       border-radius: 50%;
       position: absolute;
-      top: -20px;
-      left: -20px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-      line-height: 1.1;
-      text-align: center;
+      top: -20px; left: 20px;
+      box-shadow: 0 6px 20px rgba(90,61,154,0.35);
+      line-height: 1.1; text-align: center;
+      border: 3px solid #fff;
     }
-    .price-original-block {
-      font-size: 22px;
-      color: rgba(255,255,255,0.55);
-      text-decoration: line-through;
-      margin-bottom: 8px;
-    }
-    .price-label {
-      font-size: 16px;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 4px;
-    }
+    .price-original-block { font-size: 22px; color: var(--text-light); text-decoration: line-through; margin-bottom: 8px; }
+    .price-label { font-size: 17px; color: var(--text-mid); margin-bottom: 4px; font-weight: 600; }
     .price-main {
-      font-size: clamp(56px, 10vw, 80px);
+      font-size: clamp(72px, 14vw, 100px);
       font-weight: 900;
-      color: #FFD700;
+      color: var(--purple-dark);
       line-height: 1;
       margin: 8px 0 6px;
     }
-    .price-currency {
-      font-size: 26px;
-      vertical-align: super;
-      font-weight: 700;
-    }
-    .price-installments {
-      font-size: 18px;
-      color: rgba(255,255,255,0.9);
-      margin-top: 8px;
-      font-weight: 500;
-    }
+    .price-currency { font-size: 30px; vertical-align: super; font-weight: 700; }
+    .price-installments { font-size: 18px; color: var(--text-mid); margin-top: 8px; font-weight: 500; }
     .pricing-includes {
-      background: rgba(255,255,255,0.1);
+      background: rgba(124,92,191,0.08);
       border-radius: 12px;
       padding: 18px 22px;
       margin: 24px 0;
       text-align: right;
     }
     .pricing-includes ul { padding-right: 18px; margin: 0; }
-    .pricing-includes li { font-size: 15px; color: rgba(255,255,255,0.9); margin-bottom: 6px; }
+    .pricing-includes li { font-size: 15px; color: var(--text-dark); margin-bottom: 6px; }
 
     /* ── CTA BUTTON ── */
     .cta-btn {
       display: inline-block;
-      background: #FFD700;
-      color: #1A1A2E;
-      font-family: 'Heebo', sans-serif;
-      font-size: clamp(18px, 2.5vw, 22px);
-      font-weight: 800;
-      padding: 18px 48px;
-      border-radius: 50px;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.18);
-      transition: transform 0.2s, box-shadow 0.2s;
-      margin-top: 12px;
-    }
-    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,0,0,0.22); }
-    .cta-btn-secondary {
-      display: inline-block;
-      background: var(--purple);
+      background: var(--purple-dark);
       color: var(--white);
       font-family: 'Heebo', sans-serif;
       font-size: clamp(18px, 2.5vw, 22px);
       font-weight: 800;
-      padding: 18px 48px;
+      padding: 20px 52px;
       border-radius: 50px;
       text-decoration: none;
       cursor: pointer;
       border: none;
-      box-shadow: 0 6px 24px rgba(80,45,127,0.3);
+      box-shadow: 0 8px 24px rgba(90,61,154,0.35);
       transition: transform 0.2s, box-shadow 0.2s;
       margin-top: 12px;
     }
-    .cta-btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(80,45,127,0.4); }
+    .cta-btn:hover { transform: scale(1.05); box-shadow: 0 12px 32px rgba(90,61,154,0.45); }
+    .cta-btn-secondary {
+      display: inline-block;
+      background: var(--purple-dark);
+      color: var(--white);
+      font-family: 'Heebo', sans-serif;
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 800;
+      padding: 20px 52px;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 8px 24px rgba(90,61,154,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 12px;
+    }
+    .cta-btn-secondary:hover { transform: scale(1.05); box-shadow: 0 12px 32px rgba(90,61,154,0.45); }
     .cta-center { text-align: center; margin: 32px 0; }
     .cta-subtext { font-size: 13px; color: var(--text-light); margin-top: 10px; }
 
@@ -456,33 +382,28 @@
       border-radius: 16px;
       padding: 36px 32px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-      display: flex;
-      gap: 24px;
-      align-items: flex-start;
-      flex-wrap: wrap;
+      display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap;
     }
     .guarantee-icon { font-size: 56px; flex-shrink: 0; }
-    .guarantee-text h3 { color: var(--green); margin-bottom: 8px; }
+    .guarantee-text h3 { color: var(--purple); margin-bottom: 8px; text-align: center; }
+    .guarantee-text p { text-align: center; }
 
     /* ── FOR WHOM ── */
     .for-whom-list { list-style: none; padding: 0; }
     .for-whom-list li {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
+      display: flex; gap: 14px; align-items: flex-start;
       padding: 16px 20px;
       background: var(--white);
       border-radius: 10px;
       margin-bottom: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       font-size: 16px;
+      text-align: right;
     }
     .for-whom-list li::before {
       content: "★";
-      color: var(--green);
-      font-size: 18px;
-      flex-shrink: 0;
-      margin-top: 1px;
+      color: var(--pink);
+      font-size: 18px; flex-shrink: 0; margin-top: 1px;
     }
 
     /* ── FAQ ACCORDION ── */
@@ -494,45 +415,28 @@
       overflow: hidden;
     }
     .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 20px 24px;
-      text-align: right;
+      width: 100%; background: none; border: none;
+      padding: 20px 24px; text-align: right;
       font-family: 'Heebo', sans-serif;
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--text-dark);
+      font-size: 17px; font-weight: 600; color: var(--text-dark);
       cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
       transition: background 0.2s;
     }
-    .faq-question:hover { background: var(--gray-bg); }
-    .faq-question .faq-icon {
-      color: var(--purple);
-      font-size: 22px;
-      font-weight: 700;
-      flex-shrink: 0;
-      transition: transform 0.3s;
-    }
+    .faq-question:hover { background: var(--cream); }
+    .faq-question .faq-icon { color: var(--purple); font-size: 22px; font-weight: 700; flex-shrink: 0; transition: transform 0.3s; }
     .faq-question.open .faq-icon { transform: rotate(45deg); }
     .faq-answer {
-      max-height: 0;
-      overflow: hidden;
+      max-height: 0; overflow: hidden;
       transition: max-height 0.35s ease, padding 0.3s;
-      padding: 0 24px;
-      font-size: 16px;
-      color: var(--text-mid);
-      line-height: 1.75;
+      padding: 0 24px; font-size: 16px; color: var(--text-mid); line-height: 1.75;
+      text-align: center;
     }
     .faq-answer.open { max-height: 400px; padding: 4px 24px 20px; }
 
     /* ── FOOTER ── */
     .footer {
-      background: var(--text-dark);
+      background: #2D2D2D;
       color: rgba(255,255,255,0.6);
       text-align: center;
       padding: 32px 20px;
@@ -544,8 +448,8 @@
     @media (max-width: 600px) {
       .section { padding: 50px 0; }
       .hero { padding: 50px 16px 44px; }
-      .pricing-box { padding: 40px 20px; }
-      .discount-badge { width: 72px; height: 72px; font-size: 17px; top: -16px; left: -12px; }
+      .pricing-box { padding: 64px 20px 36px; }
+      .discount-badge { width: 82px; height: 82px; font-size: 18px; top: -18px; left: 12px; }
       .guarantee-box { flex-direction: column; }
       .story-images { flex-direction: column; }
       .cta-btn, .cta-btn-secondary { padding: 16px 32px; width: 100%; text-align: center; display: block; }
@@ -617,16 +521,16 @@
       <span style="font-weight:400; font-size:16px;">אלו סיטואציות שנתקלים בהם מיליוני משפחות שמטפלות באדם עם דמנציה.</span>
     </div>
 
-    <div style="margin-top:32px; padding:24px 0; border-top:2px solid var(--gray-border);">
-      <p><strong>אבל אלו רק תופעות לוואי לבעיה האמיתית...</strong></p>
-      <p>
-        הבעיה היא שאת חושבת שיש דרך לגרום לו להשתנות – אבל האמת היא שאת זו שצריכה לעשות את השינוי.
-        השינוי בגישה שלך, בדרך בה את פונה אליה ומתקשרת את הדברים.
-      </p>
-      <p>
-        את מנסה להביא הרבה הגיון לסיטואציות שכבר אין בהן כ"כ הגיון. וזה מתיש.
-        <strong>וזה לא אשמתך</strong>, אף אחד לא הכין אותך לסיטואציות האלו.
-      </p>
+    <div style="margin-top:32px; padding:24px 0; border-top:2px solid var(--gray-border); line-height:2.1; font-size:17px;">
+      <p><strong>אבל אלו רק תופעות לוואי לבעיה האמיתית...</strong><br>
+      הבעיה היא שאת חושבת שיש דרך לגרום לו להשתנות אבל...<br>
+      האמת היא שאת זו שצריכה לעשות את השינוי.<br>
+      השינוי בגישה שלך,<br>
+      בדרך בה את פונה אליה ומתקשרת את הדברים.<br>
+      את מנסה להביא הרבה הגיון לסיטואציות שכבר אין בהן כ"כ הגיון.<br>
+      וזה מתיש.<br>
+      <strong>וזה לא אשמתך,</strong><br>
+      אף אחד לא הכין אותך לסיטואציות האלו.</p>
     </div>
   </div>
 </section>
@@ -649,25 +553,38 @@
       </div>
     </div>
 
-    <p>
-      וגם אני הייתי שם. לפני שהפכתי לקלינאית תקשורת שמומחית לשיקום נוירולוגי ודמנציה, הייתי פשוט נכדה.
-      כשסבתא שלי אובחנה עם דמנציה, מצאתי את עצמי עומדת מולה חסרת אונים. למרות כל האהבה שבעולם, לא ידעתי איך להגיב כשהיא שאלה את אותה שאלה בפעם העשירית, או איך לשכנע אותה לעשות פעולות פשוטות בלי שזה ידרדר לוויכוח מתיש.
-    </p>
-    <p>
-      הרגשתי את התסכול הזה שאת מרגישה עכשיו. מצד אחד הרצון לעזור ומצד שני, ההרגשה שאני לא באמת מצליחה כי אני מגיעה כל פעם לאותה תוצאה מתישה.
-    </p>
-    <p>
-      דווקא מהמקום האישי הזה, הקדשתי את <strong>11 השנים האחרונות לפיצוח הקוד</strong>.
-    </p>
-    <p>
-      כקלינאית תקשורת עצמאית, טפלתי במאות מבוגרים עם דמנציה וירידה קוגניטיבית. ליוויתי משפחות ברגעים הכי קשים שלהן, ראיתי את השחיקה בעיניים של הבנות והבנים, וזכיתי לראות איך בעזרת הכלים הנכונים, <strong>האווירה בבית משתנה מקצה לקצה</strong>.
-    </p>
-    <p>
-      המומחיות שלי היא לא רק כקלינאית תקשורת בשטח, היא גם מהבית. אני מלמדת את בני המשפחה איך "לדבר דמנציה". איך להפסיק להשתמש בהיגיון מול מחלה שאין בה היגיון, ואיך לייצר חיבור אמיתי ומרגש גם כשהמילים הולכות לאיבוד.
-    </p>
-    <p>
-      היום אני יודעת בוודאות – <strong>את לא חייבת להמשיך להרגיש סחוטה.</strong> יש דרך אחרת לעבור את התקופה הזו, ואני כאן כדי לתת לך את המפה המדויקת.
-    </p>
+    <p style="font-size:clamp(30px,5vw,44px); font-weight:900; color:var(--purple-dark); text-align:center; margin:16px 0 24px; line-height:1.2;">הייתי שם.</p>
+
+    <div style="line-height:2.2; font-size:17px;">
+      לפני שהפכתי לקלינאית תקשורת שמומחית לשיקום נוירולוגי ודמנציה,<br>
+      הייתי פשוט נכדה.<br>
+      כשסבתא שלי אובחנה עם דמנציה,<br>
+      מצאתי את עצמי עומדת מולה חסרת אונים.<br>
+      למרות כל האהבה שבעולם,<br>
+      לא ידעתי איך להגיב כשהיא שאלה את אותה שאלה בפעם העשירית,<br>
+      או איך לשכנע אותה לעשות פעולות פשוטות<br>
+      בלי שזה ידרדר לוויכוח מתיש.<br><br>
+      הרגשתי את התסכול הזה שאת מרגישה עכשיו.<br>
+      מצד אחד הרצון לעזור ומצד שני,<br>
+      ההרגשה שאני לא באמת מצליחה כי אני מגיעה כל פעם לאותה תוצאה מתישה.<br><br>
+      דווקא מהמקום האישי הזה,<br>
+      <strong style="font-size:1.15em; color:var(--purple-dark);">הקדשתי את 11 השנים האחרונות לפיצוח הקוד.</strong><br><br>
+      כקלינאית תקשורת עצמאית,<br>
+      טפלתי במאות מבוגרים עם דמנציה וירידה קוגניטיבית.<br>
+      ליוויתי משפחות ברגעים הכי קשים שלהן,<br>
+      ראיתי את השחיקה בעיניים של הבנות והבנים,<br>
+      וזכיתי לראות איך בעזרת הכלים הנכונים,<br>
+      <strong>האווירה בבית משתנה מקצה לקצה.</strong><br><br>
+      המומחיות שלי היא לא רק כקלינאית תקשורת בשטח,<br>
+      היא גם מהבית.<br>
+      אני מלמדת את בני המשפחה איך "לדבר דמנציה".<br>
+      איך להפסיק להשתמש בהיגיון מול מחלה שאין בה היגיון,<br>
+      ואיך לייצר חיבור אמיתי ומרגש גם כשהמילים הולכות לאיבוד.<br><br>
+      היום אני יודעת בוודאות...<br>
+      <strong style="font-size:1.2em; color:var(--purple-dark);">את לא חייבת להמשיך להרגיש סחוטה.</strong><br>
+      יש דרך אחרת לעבור את התקופה הזו,<br>
+      ואני כאן כדי לתת לך את המפה המדויקת.
+    </div>
 
     <div class="big-highlight">
       <p>אני מתרגשת להציג את ההזדמנות שמאפשרת לעשרות בני משפחה להחליף את רגעי חוסר האונים בכלים פרקטיים, ולהפוך את התקשורת עם ההורה למכילה, זורמת ומבינה הרבה יותר</p>
@@ -701,17 +618,10 @@
 
     <div class="course-title-block">
       <div class="course-name">יש דברים שרציתי לומר</div>
-      <div class="course-subtitle">איך להפוך כל מפגש טעון ומתיש – לרגע של חיבור, שלווה והבנה עמוקה.</div>
+      <div class="course-subtitle">איך להפוך את חוסר האונים מול הדמנציה – לרגעים של חיבור, שלווה והבנה עמוקה.<br><br>תכנית עבודה מסודרת הכוללת מעל 20 שיעורי וידאו שבהם אלמד אותך צעד אחר צעד איך להפוך מפגש טעון למפגש שליו, ואלו כלים ושיטות יהפכו את היום יום שלך ושל יקירך לרגוע ובטוח.</div>
     </div>
 
     <img src="mockupundertheoffer.png" alt="מוקאפ הקורס" class="mockup-img" />
-
-    <p style="font-size:18px; max-width:640px; margin:0 auto 16px; color:var(--text-mid);">
-      <strong>הפתרון שיחזיר לך את השליטה, אצלך בטלפון ובמחשב</strong>
-    </p>
-    <p style="max-width:680px; margin:0 auto; color:var(--text-mid);">
-      כדי שתוכלי לקבל את הכלים האלו בדיוק כשאת צריכה אותם, בלי לצאת מהבית ובלי לבזבז זמן יקר, ריכזתי את כל הניסיון שלי לתוך קורס דיגיטלי ממוקד ופרקטי עם מעל <strong>20 שיעורים מצולמים, קצרים וממוקדים.</strong>
-    </p>
 
     <div class="cta-center" style="margin-top:36px;">
       <a href="https://mrng.to/V5D19kDIjF" class="cta-btn">אני רוצה להצטרף עכשיו ←</a>
@@ -805,7 +715,7 @@
     <!-- Bonus 3 -->
     <div class="bonus-card">
       <div class="bonus-badge">בונוס #3</div>
-      <h3 style="margin-top:8px;">"מה עושים היום?" – בנק פעילויות מחברות לזמן איכות משותף ללא מילים</h3>
+      <h3 style="margin-top:8px;">"מה עושים היום?" – בנק פעילויות מחברות לזמן איכות משותף לפי שלבי המחלה</h3>
       <p style="color:var(--text-mid);">הכנתי לך PDF עם מעל 30 רעיונות לפעילויות פשוטות ונגישות שמתאימות ליכולות הקוגניטיביות המשתנות – כדי להפוך כל שתיקה מביכה לרגע של חיבור.</p>
       <img src="bonusthree.png" alt="בונוס 3 – בנק פעילויות" class="bonus-img" />
       <div class="bonus-value">
@@ -868,7 +778,7 @@
       </div>
 
       <a href="https://mrng.to/V5D19kDIjF" class="cta-btn">אני רוצה את הקורס עכשיו ←</a>
-      <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-top:14px;">תשלום מאובטח | אחריות מלאה ל-3 ימים | גישה מיידית</p>
+      <p style="font-size:13px; color:#2D2D2D; margin-top:14px; font-weight:600;">תשלום מאובטח | אחריות מלאה ל-3 ימים | גישה מיידית</p>
     </div>
   </div>
 </section>
