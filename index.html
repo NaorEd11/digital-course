@@ -553,6 +553,7 @@
       .bonus-card { padding: 24px 20px; }
       .module-body { padding: 20px 16px; }
       .social-proof-card { padding: 22px 18px; }
+      .sp-pair .social-proof-card { flex: 0 0 100% !important; }
     }
   </style>
 </head>
@@ -703,20 +704,27 @@
     <!-- Arrow -->
     <div class="arrow-down">↓</div>
 
-    <!-- Social Proof 1 + 5 -->
-    <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
-      <div class="social-proof-card" style="flex:1; min-width:260px; max-width:480px;">
-        <img src="socialproof1.png" alt="עדות רויטל" class="sp-image" style="margin-bottom:18px;" />
-        <div class="social-proof-author">
-          <div class="author-avatar">ר</div>
-          <div>
-            <div class="author-name">רויטל</div>
-            <div style="font-size:13px;color:var(--text-light);">מטפלת באמא עם דמנציה</div>
-          </div>
+    <!-- Social Proof 1 -->
+    <div class="social-proof-card">
+      <img src="socialproof1.png" alt="עדות רויטל" class="sp-image" style="margin-bottom:18px;" />
+      <div class="social-proof-author">
+        <div class="author-avatar">ר</div>
+        <div>
+          <div class="author-name">רויטל</div>
+          <div style="font-size:13px;color:var(--text-light);">מטפלת באמא עם דמנציה</div>
         </div>
       </div>
-      <div class="social-proof-card" style="flex:1; min-width:260px; max-width:480px;">
-        <img src="socialproof5.png" alt="עדות נוספת" class="sp-image" style="margin-bottom:18px;" />
+    </div>
+
+    <!-- Social Proof 5 -->
+    <div class="social-proof-card">
+      <img src="socialproof5.jpeg" alt="עדות הדר" class="sp-image" style="margin-bottom:18px; aspect-ratio:732/77; object-fit:cover; object-position:top center;" />
+      <div class="social-proof-author">
+        <div class="author-avatar">ה</div>
+        <div>
+          <div class="author-name">הדר</div>
+          <div style="font-size:13px;color:var(--text-light);">מטפלת באמא עם דמנציה</div>
+        </div>
       </div>
     </div>
 
