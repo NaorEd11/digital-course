@@ -1204,9 +1204,12 @@ async function sendMessage() {
       body: JSON.stringify({ messages: messages.slice(0, -1) })
     });
     const data = await res.json();
-    typing.textContent = data.reply;
-    messages[messages.length - 1].content = data.reply;
-  } catch {
+    console.log('API response:', JSON.stringify(data));
+    const reply = data.reply || data.content?.[0]?.text || JSON.stringify(data);
+    typing.textContent = reply;
+    messages[messages.length - 1].content = reply;
+  } catch(err) {
+    console.error('Error:', err);
     typing.textContent = 'אירעה שגיאה, נסי שוב 🙏';
   }
 }
